@@ -10,6 +10,7 @@ public class PlayerMovement : NetworkBehaviour
 
     [Header("Camera")]
     [SerializeField] private Camera _camera;
+    [SerializeField] private Transform _cameraPivot;
     [SerializeField] private Transform _cameraPoint;
 
     private Vector3 _velocity;
@@ -33,8 +34,8 @@ public class PlayerMovement : NetworkBehaviour
             _velocity = new Vector3(0, -1, 0);
         }
 
-        Vector3 horizontal = Input.GetAxis("Horizontal") * _camera.transform.right;
-        Vector3 vertical = Input.GetAxis("Vertical") * _camera.transform.forward;
+        Vector3 horizontal = Input.GetAxis("Horizontal") * transform.right;
+        Vector3 vertical = Input.GetAxis("Vertical") * transform.forward;
         Vector3 move = _moveSpeed * Runner.DeltaTime * (horizontal + vertical);
         move.y = 0;
 
@@ -61,7 +62,10 @@ public class PlayerMovement : NetworkBehaviour
         if (HasStateAuthority)
         {
             _camera = Camera.main;
-            _camera.GetComponent<FirstPersonCamera>().Target = _cameraPoint;
+            var fpCam = _camera.GetComponent<FirstPersonCamera>();
+            fpCam.PlayerTransform = transform;
+            fpCam.Pivot = _cameraPivot;
+            fpCam.Target = _cameraPoint;
         }
     }
 }
