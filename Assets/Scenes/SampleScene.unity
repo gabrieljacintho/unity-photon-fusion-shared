@@ -289,7 +289,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 0}
   _pivot: {fileID: 0}
   _target: {fileID: 0}
-  _mouseSensitivity: 135
+  _mouseSensitivity: 360
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

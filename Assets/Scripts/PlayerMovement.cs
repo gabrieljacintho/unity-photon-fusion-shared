@@ -16,6 +16,8 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 _velocity;
     private bool _jumpPressed;
 
+    public Camera Camera => _camera;
+
 
     private void Update()
     {
