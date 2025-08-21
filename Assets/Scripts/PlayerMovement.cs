@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private CharacterController _characterController;
-    [SerializeField] private float _moveSpeed = 2f;
-    [SerializeField] private float _jumpForce = 2.5f;
-    [SerializeField] private float _gravity = 9.81f;
+    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _jumpForce = 3f;
+    [SerializeField] private float _gravity = -9.81f;
 
     [Header("Camera")]
     [SerializeField] private Camera _camera;
@@ -39,7 +39,7 @@ public class PlayerMovement : NetworkBehaviour
         Vector3 move = _moveSpeed * Runner.DeltaTime * (horizontal + vertical);
         move.y = 0;
 
-        _velocity.y -= _gravity * Runner.DeltaTime;
+        _velocity.y += _gravity * Runner.DeltaTime;
         if (_jumpPressed && _characterController.isGrounded)
         {
             _velocity.y += _jumpForce;

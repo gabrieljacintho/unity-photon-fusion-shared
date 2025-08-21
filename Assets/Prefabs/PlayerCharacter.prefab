@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5434304677292350816}
   - component: {fileID: 862124928163618698}
   - component: {fileID: 1639688894483292419}
+  - component: {fileID: 2870695260813026757}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -136,6 +137,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 862124928163618698}
   - {fileID: 1639688894483292419}
+  - {fileID: 2870695260813026757}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &862124928163618698
 MonoBehaviour:
@@ -167,12 +169,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 3151800949463475047}
-  _moveSpeed: 2
-  _jumpForce: 2.5
-  _gravity: 9.81
+  _moveSpeed: 5
+  _jumpForce: 3
+  _gravity: -9.81
   _camera: {fileID: 0}
   _cameraPivot: {fileID: 4697124797858353953}
   _cameraPoint: {fileID: 6939960099735504387}
+--- !u!114 &2870695260813026757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233924414853560824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1216a35e754614a91dbebf0ee093da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 1759377014532612338}
+  _NetworkedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &3726155960563735435
 GameObject:
   m_ObjectHideFlags: 0
